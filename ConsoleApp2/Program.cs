@@ -10,6 +10,32 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            try
+            {
+                Console.WriteLine($"Hello {args[1]}!");
+            }
+            catch (IndexOutOfRangeException ioore)
+            {
+                Console.WriteLine(ioore.Message);
+            }
+            catch (Exception)
+            {
+
+                throw new DemoExecption();
+            }
+        }
+    }
+
+    public class DemoExecption : Exception
+    {
+        public DemoExecption(string message)
+        {
+
+        }
+
+        public DemoExecption()
+        {
+
         }
     }
 }
