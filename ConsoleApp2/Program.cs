@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +11,20 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+
             try
-            {
-                Console.WriteLine($"Hello {args[1]}!");
+            {   
+                Console.WriteLine($"Hello {args[0]}!");
             }
-            catch (IndexOutOfRangeException ioore)
+            catch (UnauthorizedAccessException uae)
             {
-                Console.WriteLine(ioore.Message);
+                Console.WriteLine(uae.Message);
+                
             }
             catch (Exception)
             {
 
+                
                 throw new DemoExecption();
             }
         }
