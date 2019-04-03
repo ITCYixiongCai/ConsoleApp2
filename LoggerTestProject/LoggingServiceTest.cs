@@ -83,7 +83,7 @@ namespace LoggerTestProject
                 while (!sr.EndOfStream)
                 {
                     index++;
-                    var content = sr.ReadLine());
+                    var content = sr.ReadLine();
                     Assert.IsTrue(content.StartsWith("1"), "Index 1 wurde nicht gelöscht");
                 }
                
