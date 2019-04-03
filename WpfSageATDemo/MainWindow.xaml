@@ -12,9 +12,25 @@
             <RowDefinition/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Button Content="Drückmich!"
+        
+        <StackPanel Grid.Row="1">
+            <Button Content="Drückmich!"
                 Grid.Row="1"
                 Height="40"
-                Width="100"/>
+                Width="100"
+                Click="Button_Click"
+                Background="Aqua"
+                Tag="Log"/>
+            <Button Content="2. Knopf!"
+                Grid.Row="1"
+                Height="40"
+                Width="100"
+                Tag="Delete Temp Log"
+                Click="Button_Click"
+                Background="Red"/>
+            
+        </StackPanel>
+
+
     </Grid>
 </Window>
