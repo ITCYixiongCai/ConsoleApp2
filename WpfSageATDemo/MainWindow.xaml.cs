@@ -21,6 +21,7 @@ namespace WpfSageATDemo
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly LoggingService logger = new LoggingService();
         public MainWindow()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace WpfSageATDemo
         {
             //über sender.getType().Name kann man den Typ holen
             //über sender as Button wird die Abfrage im Complier durchgeführt - wenn es ein Button ist wird Button übergeben ansonsten null
-            var logger = new LoggingService();
+         
             try
             {
 
