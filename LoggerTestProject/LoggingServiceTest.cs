@@ -84,11 +84,10 @@ namespace LoggerTestProject
                 {
                     index++;
                     var content = sr.ReadLine();
-                    Assert.IsTrue(content.StartsWith("1"), "Index 1 wurde nicht gelöscht");
+                    Assert.IsFalse(content.StartsWith("1"), $"Index 1 wurde nicht gelöscht");
                 }
-               
             }
-
+            
         }
 
         [TestMethod]

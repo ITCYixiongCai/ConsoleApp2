@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    public class LoggingService
+    public class LoggingService : IInitLogging,, ILoggingService
     {
 
         /// <summary>

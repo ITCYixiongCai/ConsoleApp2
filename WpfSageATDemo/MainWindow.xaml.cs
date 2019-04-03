@@ -21,10 +21,14 @@ namespace WpfSageATDemo
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly LoggingService logger = new LoggingService();
+        private readonly ILoggingService _logger ;
+        private readonly IInitLogging _init ;
         public MainWindow()
         {
             InitializeComponent();
+            var service = new LoggingService();
+            _init = service;
+            _logger = service;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,14 +44,15 @@ namespace WpfSageATDemo
                     //button.Background = Brushes.Red;
                     //e.Handled = true;
                     var tag = (string)button.Tag;
-                    
+                    _init.Init();
                     switch (tag)
                     {
                         case "Log":
-                            logger.Log("Blue Button was clicked ");
+                           
+                            _logger.Log("Blue Button was clicked ");
                             break;
                         case "Delete Temp Log":
-                            logger.Logdelete();
+                            _logger.LogDeleteZeile(1);
                             break;
                         default:
                             break;
