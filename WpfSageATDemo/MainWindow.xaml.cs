@@ -1,4 +1,5 @@
 ﻿using ConsoleApp2;
+using SharedTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace WpfSageATDemo
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         private readonly ILoggingService _logger ;
         private readonly IInitLogging _init ;
         public MainWindow()
@@ -64,7 +66,7 @@ namespace WpfSageATDemo
             catch (InvalidCastException ice)
             {
 
-                logger.Log(ice.Message);
+                _logger.Log(ice.Message);
             }
         }
     }

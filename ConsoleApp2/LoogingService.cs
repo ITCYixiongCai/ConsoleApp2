@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedTypes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,8 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp2
+  
 {
-    public class LoggingService : IInitLogging,, ILoggingService
+    public class LoggingService : IInitLogging, ILoggingService
     {
 
         /// <summary>
@@ -80,6 +82,36 @@ namespace ConsoleApp2
                 }
             }
         }
+        
+        public void Log(LogLineModel toLog)
+        {
+            DateTime date = DateTime.Now;
+            var path = (string)Environment.GetEnvironmentVariables()["APPDATA"];
+            var folder = Path.Combine(path, "sageAT");
+
+            Directory.CreateDirectory(folder);
+            using (var sw = new StreamWriter(Logfile, append: true))
+            {
+                var line = _Mapper(toLog).ToString();
+                _currentRowIndex++;
+                sw.WriteLine(line);
+            }
+        }
+        #region private methods 
+        
+        private StringBuilder _Mapper (LogLineModel logLineModel)
+        {
+            var sb = new StringBuilder();
+            sb.Append(logLineModel.RowIndex);
+            sb.Append(" | ");
+            sb.Append(logLineModel.LoggingTime);
+            sb.Append(" | ");
+            sb.Append(logLineModel.Message);
+
+            return sb;
+        }
+        #endregion private methods
+
 
     }
 }

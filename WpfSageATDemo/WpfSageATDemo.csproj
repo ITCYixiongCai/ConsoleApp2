@@ -96,9 +96,16 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConsoleApp2\ConsoleApp2.csproj">
-      <Project>{8f6bc75b-e2ca-4c03-a1d5-dd9b1796f82e}</Project>
+      <Project>{8F6BC75B-E2CA-4C03-A1D5-DD9B1796F82E}</Project>
       <Name>ConsoleApp2</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedTypes\SharedTypes.csproj">
+      <Project>{5f516dbe-e488-4e29-8370-39cce0f81d3f}</Project>
+      <Name>SharedTypes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
